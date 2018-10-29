@@ -1,0 +1,34 @@
+{% extends "base.html"%}
+
+{% block title %}Index {% endblock %}
+
+{% block content %}
+
+<h1>Consulta de Ciencias de la Tierra</h1>
+<br>
+ 
+{% for abc in obj%}
+<table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Titulo</th>
+      <td >{{abc.titulo}}</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="col">Autor</th>
+      <td>{{abc.autor}}</td>
+    </tr>
+    <tr>
+    	<th scope="col">Categoria</th>
+    	<td>{{abc.categoria}}</td>
+    </tr>
+    <tr>
+    	<th scope="col">Archivo</th>
+      <td><a href="{{abc.docfile.url}} "> {{abc.docfile}} </a></td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} {% endblock %}</title>
+ <!-- CDN Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url "index_view" %}">Inicio</a>
+                <a class="navbar-brand" href="{% url "uploads" %}">Subir Trabajo</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                     <li class="dropdown">
+        				<a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          				Consultar trabajos
+        				</a>
+	        				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          					<li><a class="dropdown-item" href="{% url "consultacc_view" %}">Ciencias Computacionales</a></li>
+					        	<li><a class="dropdown-item" href="{% url "consultact_view" %}">Ciencias de la Tierra</a></li>
+					        	<li><a class="dropdown-item" href="{% url "consultacn_view" %}">Ciencias Naturales</a></li>
+					        	<li><a class="dropdown-item" href="{% url "consultacs_view" %}">Ciencias Sociales</a></li>
+					        	<li><a class="dropdown-item" href="{% url "consultacm_view" %}">Ciencias Medicas</a></li>
+					        </ul>
+				     </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url "index_view" %}">Inicio</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Log In</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="container">
+        {% block maincontent %}
+        {% endblock maincontent %}
+    </div>
+</body>
+</html>
